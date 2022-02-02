@@ -1,0 +1,17 @@
+@import "../styles/mixin";
+
+.star-view-content {
+  width: 500px;
+  @include centerPosition;
+
+  .star-view-card-wrap {
+    width: 500px;
+    margin: 20px 10px;
+    overflow-x: scroll;
+
+    .star-view-card-swiper {
+      display: flex;
+      width: 700px;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import "./StarView.scss";
 
 function StarView() {
   const [data, setData] = useState([]);
@@ -11,7 +12,6 @@ function StarView() {
     setData(result);
   };
 
-  console.log(data);
   useEffect(() => {
     getData();
   }, []);
@@ -19,9 +19,27 @@ function StarView() {
   return (
     <div className="star-view-content">
       <div className="star-view-content-image">
-        <img src={data.imageUrl} alt={data.id} />
+        {data && <img src={data.imageUrl} alt="스타뷰" />}
       </div>
-      <ProductCard />
+      <div className="star-view-card-wrap">
+        <div className="star-view-card-swiper">
+          {data &&
+            data.productList?.map((el) => {
+              return (
+                <ProductCard
+                  key={el.id}
+                  name={el.productName}
+                  outside={el.outside}
+                  pointX={el.pointX}
+                  pointY={el.pointY}
+                  priceDiscount={el.priceDiscount}
+                  priceOriginal={el.priceOriginal}
+                  productUrl={el.imageUrl}
+                />
+              );
+            })}
+        </div>
+      </div>
     </div>
   );
 }
