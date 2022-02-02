@@ -1,4 +1,13 @@
 .star-view-product-card {
-  width: 100px;
+  width: 106px;
+  height: 106px;
   margin: 0 5px;
+  border-radius: 16px;
+  border: 0.5px solid #aaafb9;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
 }
