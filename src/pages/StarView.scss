@@ -4,6 +4,10 @@
   width: 500px;
   @include centerPosition;
 
+  .star-view-content-image {
+    position: relative;
+  }
+
   .star-view-card-wrap {
     width: 500px;
     margin: 20px 10px;

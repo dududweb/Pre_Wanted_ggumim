@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import ToolTipBox from "../components/ToolTipBox";
 import "./StarView.scss";
 
 function StarView() {
@@ -11,6 +12,7 @@ function StarView() {
     ).json();
     setData(result);
   };
+  console.log(data);
 
   useEffect(() => {
     getData();
@@ -21,8 +23,23 @@ function StarView() {
       <div className="star-view-content-image">
         {data && <img src={data.imageUrl} alt="스타뷰" />}
       </div>
+      {data &&
+        data.productList?.map((el) => {
+          return (
+            <ToolTipBox
+              key={el.id}
+              name={el.productName}
+              outside={el.outside}
+              pointX={el.pointX}
+              pointY={el.pointY}
+              priceDiscount={el.priceDiscount}
+              priceOriginal={el.priceOriginal}
+              productUrl={el.imageUrl}
+            />
+          );
+        })}
       <div className="star-view-card-wrap">
-        <div className="star-view-card-swiper">
+        <ul className="star-view-card-swiper">
           {data &&
             data.productList?.map((el) => {
               return (
@@ -38,7 +55,7 @@ function StarView() {
                 />
               );
             })}
-        </div>
+        </ul>
       </div>
     </div>
   );

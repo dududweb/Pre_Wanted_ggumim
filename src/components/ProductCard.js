@@ -11,9 +11,9 @@ function ProductCard(props) {
     productUrl,
   } = props;
   return (
-    <div className="star-view-product-card">
+    <li className="star-view-product-card">
       <img src={productUrl} alt={name} />
-    </div>
+    </li>
   );
 }
 
