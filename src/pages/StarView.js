@@ -24,10 +24,10 @@ function StarView() {
         {data && <img src={data.imageUrl} alt="스타뷰" />}
       </div>
       {data &&
-        data.productList?.map((el) => {
+        data.productList?.map((el, idx) => {
           return (
             <ToolTipBox
-              key={el.id}
+              key={idx}
               name={el.productName}
               outside={el.outside}
               pointX={el.pointX}
