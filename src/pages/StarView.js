@@ -11,14 +11,16 @@ function StarView() {
     setData(result);
   };
 
-  console.log(data.id);
+  console.log(data);
   useEffect(() => {
     getData();
   }, []);
 
   return (
     <div className="star-view-content">
-      <div className="star-view-content-image"></div>
+      <div className="star-view-content-image">
+        <img src={data.imageUrl} alt={data.id} />
+      </div>
       <ProductCard />
     </div>
   );
