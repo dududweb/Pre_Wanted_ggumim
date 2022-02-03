@@ -12,8 +12,10 @@ function ToolTipBox(props) {
     pointY,
     priceDiscount,
     priceOriginal,
+    discountRate,
     productUrl,
-    openBox,
+    handleToolBox,
+    selectId,
   } = props;
 
   const handleTag = {
@@ -27,15 +29,11 @@ function ToolTipBox(props) {
       id={id}
       style={handleTag}
       onClick={() => {
-        openBox(id);
+        handleToolBox(id);
       }}
     >
-      {true ? (
-        <img src={SearchButton} alt="searchIcon" />
-      ) : (
-        <img src={ExitButton} alt="ExitButton" />
-      )}
-      <div className={`tool-tip-box hidden`} id={id}>
+      <img src={SearchButton} alt="searchIcon" />
+      <div className={`tool-tip-box ${selectId === id ? "block" : "hidden"}`}>
         <div className="tool-tip-contents">
           <div className="tool-tip-image">
             <img src={productUrl} alt="에틱타일" />
@@ -45,8 +43,16 @@ function ToolTipBox(props) {
               <h3 className="product-title">{name}</h3>
             </div>
             <div className="tool-tip-price">
-              <span>예상가</span>
-              <span>76,000</span>
+              {outside ? (
+                <span>예상가</span>
+              ) : (
+                <span>{discountRate ? `${discountRate}%` : "가격"}</span>
+              )}
+              <span>
+                {priceOriginal === priceDiscount
+                  ? priceOriginal
+                  : priceDiscount}
+              </span>
             </div>
           </div>
           <div className="view-more-button">
