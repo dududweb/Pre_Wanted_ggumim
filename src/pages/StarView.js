@@ -7,6 +7,7 @@ function StarView() {
   const [data, setData] = useState([]);
   const [selectId, setSelectId] = useState("");
   const [isClicked, setIsClicked] = useState(false);
+  const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
 
   const getData = async () => {
     const result = await (
@@ -14,18 +15,28 @@ function StarView() {
     ).json();
     setData(result);
   };
-  console.log(data);
-  console.log(isClicked);
 
   useEffect(() => {
     getData();
   }, []);
 
+  useEffect(() => {
+    getImageSize(data.imageUrl);
+  }, [data]);
+
+  console.log(data);
+  console.log(isClicked);
+
+  const getImageSize = (src) => {
+    const img = new Image();
+    img.src = src;
+    console.log(img.width);
+    setImageSize({ width: img.width, height: img.height });
+  };
+
   const handleToolBox = (targetId) => {
-    setSelectId(targetId);
     setIsClicked(!isClicked);
-    // const result = data.productList?.filter((el) => el.productId === targetId);
-    // return result;
+    setSelectId(targetId);
   };
 
   const resetToolBox = () => {
