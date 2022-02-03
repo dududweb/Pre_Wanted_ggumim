@@ -6,6 +6,7 @@ import "./StarView.scss";
 function StarView() {
   const [data, setData] = useState([]);
   const [selectId, setSelectId] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
 
   const getData = async () => {
     const result = await (
@@ -21,9 +22,9 @@ function StarView() {
 
   const handleToolBox = (targetId) => {
     setSelectId(targetId);
+    setIsClicked(!isClicked);
     // const result = data.productList?.filter((el) => el.productId === targetId);
     // return result;
-    // 클릭이 일어나서 아이디를 가져가면 result에는 한 개의 이미지 정보만 담겨있음.
   };
 
   return (
@@ -48,6 +49,7 @@ function StarView() {
               handleToolBox={handleToolBox}
               selectId={selectId}
               outside={el.outside}
+              isClicked={isClicked}
             />
           );
         })}
@@ -62,8 +64,6 @@ function StarView() {
                   outside={el.outside}
                   pointX={el.pointX}
                   pointY={el.pointY}
-                  priceDiscount={el.priceDiscount}
-                  priceOriginal={el.priceOriginal}
                   productUrl={el.imageUrl}
                 />
               );

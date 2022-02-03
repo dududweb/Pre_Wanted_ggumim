@@ -16,6 +16,7 @@ function ToolTipBox(props) {
     productUrl,
     handleToolBox,
     selectId,
+    isClicked,
   } = props;
 
   const handleTag = {
@@ -32,11 +33,18 @@ function ToolTipBox(props) {
         handleToolBox(id);
       }}
     >
-      <img src={SearchButton} alt="searchIcon" />
-      <div className={`tool-tip-box ${selectId === id ? "block" : "hidden"}`}>
+      <img
+        src={selectId === id && isClicked ? ExitButton : SearchButton}
+        alt="searchIcon"
+      />
+      <div
+        className={`tool-tip-box ${
+          selectId === id && isClicked ? "block" : "hidden"
+        }`}
+      >
         <div className="tool-tip-contents">
           <div className="tool-tip-image">
-            <img src={productUrl} alt="에틱타일" />
+            <img src={productUrl} alt={name} />
           </div>
           <div className="tool-tip-word">
             <div className="tool-tip-title">
