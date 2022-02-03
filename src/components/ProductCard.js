@@ -1,11 +1,20 @@
 import "./styles/ProductCard.scss";
 
 function ProductCard(props) {
-  const { name, outside, productUrl } = props;
+  const { id, selectId, name, productUrl, handleToolBox } = props;
   return (
-    <li className="star-view-product-card">
-      <img src={productUrl} alt={name} />
-    </li>
+    <div
+      className={`star-view-product-card-part ${
+        selectId === id && "selected-box"
+      }`}
+      onClick={() => {
+        handleToolBox(id);
+      }}
+    >
+      <div className="star-view-product-card">
+        <img src={productUrl} alt={name} />
+      </div>
+    </div>
   );
 }
 
