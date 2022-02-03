@@ -62,12 +62,14 @@ function StarView() {
                   key={el.id}
                   id={el.productId}
                   name={el.productName}
+                  discountRate={el.discountRate}
                   outside={el.outside}
                   pointX={el.pointX}
                   pointY={el.pointY}
                   productUrl={el.imageUrl}
                   selectId={selectId}
                   handleToolBox={handleToolBox}
+                  isClicked={isClicked}
                 />
               );
             })}

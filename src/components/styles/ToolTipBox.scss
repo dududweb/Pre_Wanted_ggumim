@@ -38,12 +38,28 @@
 
       .tool-tip-word {
         width: 100px;
-        font-size: 14px;
+        font-size: 13px;
         margin-left: 10px;
 
         .tool-tip-price {
           display: flex;
+          align-items: center;
           padding-top: 25px;
+          font-weight: bold;
+
+          .price-info {
+            color: grey;
+          }
+
+          .price-discount-info {
+            color: #ff585d;
+            font-size: 17px;
+          }
+
+          .price {
+            font-size: 17px;
+            padding-left: 5px;
+          }
         }
       }
 

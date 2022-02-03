@@ -52,11 +52,13 @@ function ToolTipBox(props) {
             </div>
             <div className="tool-tip-price">
               {outside ? (
-                <span>예상가</span>
+                <span className="price-info">예상가</span>
               ) : (
-                <span>{discountRate ? `${discountRate}%` : "가격"}</span>
+                <span className="price-discount-info">
+                  {discountRate ? `${discountRate}%` : "가격"}
+                </span>
               )}
-              <span>
+              <span className="price">
                 {priceOriginal === priceDiscount
                   ? priceOriginal
                   : priceDiscount}
