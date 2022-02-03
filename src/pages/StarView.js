@@ -18,6 +18,14 @@ function StarView() {
     getData();
   }, []);
 
+  const openToolBox = (targetId) => {
+    // 1. 클릭한 아이디에 해당되는 툴박스만 display block 해주기.filter로 id 같은 것 만 반환하기
+    // 2.
+    console.log(targetId);
+    const result = data.productList?.filter((el) => el.id === targetId);
+    return result;
+  };
+
   return (
     <div className="star-view-content">
       <div className="star-view-content-image">
@@ -28,6 +36,7 @@ function StarView() {
           return (
             <ToolTipBox
               key={idx}
+              id={el.productId}
               name={el.productName}
               outside={el.outside}
               pointX={el.pointX}
@@ -35,6 +44,7 @@ function StarView() {
               priceDiscount={el.priceDiscount}
               priceOriginal={el.priceOriginal}
               productUrl={el.imageUrl}
+              openBox={openToolBox}
             />
           );
         })}
