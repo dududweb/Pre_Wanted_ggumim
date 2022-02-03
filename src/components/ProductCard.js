@@ -1,4 +1,3 @@
-import SaleTag from "../asset/icon/saleIcon.png";
 import "./styles/ProductCard.scss";
 
 function ProductCard(props) {
@@ -10,12 +9,22 @@ function ProductCard(props) {
     handleToolBox,
     isClicked,
     discountRate,
+    // setIsClicked,
   } = props;
+
   return (
     <div
       className={`star-view-product-card-part ${
         selectId === id && isClicked && "selected-box"
       }`}
+      // onMouseOver={() => {
+      //   setIsClicked(true);
+      //   console.log("moseover");
+      // }}
+      // onMouseOut={() => {
+      //   setIsClicked(false);
+      //   console.log("moseout");
+      // }}
     >
       <div
         className="star-view-product-card"
@@ -24,7 +33,7 @@ function ProductCard(props) {
         }}
       >
         {discountRate !== 0 && (
-          <div className="saletag">
+          <div className="sale-tag">
             <h1 className="sale-info">
               {discountRate}
               <span>%</span>

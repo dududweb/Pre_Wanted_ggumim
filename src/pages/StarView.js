@@ -15,6 +15,7 @@ function StarView() {
     setData(result);
   };
   console.log(data);
+  console.log(isClicked);
 
   useEffect(() => {
     getData();
@@ -27,9 +28,13 @@ function StarView() {
     // return result;
   };
 
+  const resetToolBox = () => {
+    setIsClicked(false);
+  };
+
   return (
     <div className="star-view-content">
-      <div className="star-view-content-image">
+      <div className="star-view-content-image" onClick={resetToolBox}>
         {data && <img src={data.imageUrl} alt="스타뷰" />}
       </div>
       {data &&
@@ -70,6 +75,7 @@ function StarView() {
                   selectId={selectId}
                   handleToolBox={handleToolBox}
                   isClicked={isClicked}
+                  setIsClicked={setIsClicked}
                 />
               );
             })}

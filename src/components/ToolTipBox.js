@@ -19,9 +19,10 @@ function ToolTipBox(props) {
     isClicked,
   } = props;
 
+  const magnification = 1.6;
   const handleTag = {
-    top: pointX * 1.6,
-    left: pointY * 1.6,
+    top: pointX * magnification,
+    left: pointY * magnification,
   };
 
   return (
@@ -60,8 +61,8 @@ function ToolTipBox(props) {
               )}
               <span className="price">
                 {priceOriginal === priceDiscount
-                  ? priceOriginal
-                  : priceDiscount}
+                  ? priceOriginal.toLocaleString()
+                  : priceDiscount.toLocaleString()}
               </span>
             </div>
           </div>
