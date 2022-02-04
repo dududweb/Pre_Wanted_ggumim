@@ -18,9 +18,9 @@ Sass
   8. 입점 여부에 따라 할인율 표시
 </br>   
 ## :: 설치 및 시작하는 법
-파일 클론 받기
-``` git clone https://github.com/dududweb/wanted_ggumim.git ```
-패키지 설치
-``` npm install ```
-실행
-``` npm start ```
+### 파일 클론 받기
+git clone https://github.com/dududweb/wanted_ggumim.git
+### 패키지 설치
+ npm install 
+### 실행
+ npm start
