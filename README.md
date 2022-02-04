@@ -1,7 +1,7 @@
 ## 원티드 과제_집꾸미기 스타뷰
 
 ## :: 배포
-:: <a href="http://dududggumim.s3-website.ap-northeast-2.amazonaws.com/">데모 링크</a>
+<a href="http://dududggumim.s3-website.ap-northeast-2.amazonaws.com/">데모 링크</a>
 </br>
 ## :: 기술 스택
 React
@@ -18,15 +18,12 @@ Sass
 8. 입점 여부에 따라 할인율 표시
 </br>  
 </br>  
-## :: 설치 및 시작하는 법
+## :: 설치 및 시작
 ### 파일 클론 받기
 </br>  
-git clone https://github.com/dududweb/wanted_ggumim.git
+ git clone https://github.com/dududweb/wanted_ggumim.git
 </br>  
-### 패키지 설치
-</br>  
+1. 패키지 설치  
  npm install 
- </br>  
-### 실행
-</br>  
+2. 실행  
  npm start
