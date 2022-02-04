@@ -1,18 +1,16 @@
 import "./styles/ProductCard.scss";
 
 function ProductCard(props) {
-  const { id, isSelectId, name, productUrl, handleToolBox, discountRate } =
+  const { id, isSelected, name, productUrl, handleToolBox, discountRate } =
     props;
 
   const handleToggle = () => {
-    handleToolBox(isSelectId ? null : id);
+    handleToolBox(isSelected ? null : id);
   };
 
   return (
     <div
-      className={`star-view-product-card-part ${
-        isSelectId === id && "selected-box"
-      }`}
+      className={`star-view-product-card-part ${isSelected && "selected-box"}`}
     >
       <div className="star-view-product-card" onClick={handleToggle}>
         {discountRate !== 0 && (

@@ -15,7 +15,7 @@ function ToolTipBox(props) {
     discountRate,
     productUrl,
     handleToolBox,
-    isSelectId,
+    isSelected,
     imageWidthSize,
     imageHeightSize,
   } = props;
@@ -28,7 +28,7 @@ function ToolTipBox(props) {
   };
   const { top, left } = handleTag;
   const handleToggle = () => {
-    handleToolBox(isSelectId ? null : id);
+    handleToolBox(isSelected ? null : id);
   };
 
   return (
@@ -40,11 +40,9 @@ function ToolTipBox(props) {
       onClick={handleToggle}
       style={handleTag}
     >
-      <img src={isSelectId === id ? ExitIcon : SearchIcon} alt="searchIcon" />
+      <img src={!isSelected ? SearchIcon : ExitIcon} alt="searchIcon" />
       <div
-        className={`tool-tip-box-default ${
-          isSelectId === id ? "block" : "hidden"
-        } ${
+        className={`tool-tip-box-default ${!isSelected ? "hidden" : "block"} ${
           top >= imageHeightSize / 4 && left >= imageWidthSize / 4
             ? "tool-tip-box1"
             : "tool-tip-box2"

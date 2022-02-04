@@ -5,7 +5,7 @@ import "./StarView.scss";
 
 function StarView() {
   const [data, setData] = useState([]);
-  const [isSelectId, setIsSelectId] = useState(null);
+  const [selectId, setSelectId] = useState(null);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
 
   const getData = async () => {
@@ -30,11 +30,11 @@ function StarView() {
   };
 
   const handleToolBox = (targetValue) => {
-    setIsSelectId(targetValue);
+    setSelectId(targetValue);
   };
 
   const resetToolBox = () => {
-    setIsSelectId(null);
+    setSelectId(null);
   };
 
   return (
@@ -57,7 +57,8 @@ function StarView() {
               discountRate={el.discountRate}
               productUrl={el.imageUrl}
               handleToolBox={handleToolBox}
-              isSelectId={isSelectId}
+              selectId={selectId}
+              isSelected={el.productId === selectId}
               imageWidthSize={imageSize.width}
               imageHeightSize={imageSize.height}
             />
@@ -77,7 +78,8 @@ function StarView() {
                   pointX={el.pointX}
                   pointY={el.pointY}
                   productUrl={el.imageUrl}
-                  isSelectId={isSelectId}
+                  selectId={selectId}
+                  isSelected={el.productId === selectId}
                   handleToolBox={handleToolBox}
                 />
               );
