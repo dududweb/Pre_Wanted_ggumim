@@ -31,7 +31,6 @@ function StarView() {
 
   const handleToolBox = (targetValue) => {
     setIsSelectId(targetValue);
-    console.log(targetValue);
   };
 
   const resetToolBox = () => {

@@ -13,14 +13,6 @@ function ProductCard(props) {
       className={`star-view-product-card-part ${
         isSelectId === id && "selected-box"
       }`}
-      // onMouseOver={() => {
-      //   setIsClicked(true);
-      //   console.log("moseover");
-      // }}
-      // onMouseOut={() => {
-      //   setIsClicked(false);
-      //   console.log("moseout");
-      // }}
     >
       <div className="star-view-product-card" onClick={handleToggle}>
         {discountRate !== 0 && (

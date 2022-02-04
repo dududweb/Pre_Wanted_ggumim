@@ -20,9 +20,6 @@ function ToolTipBox(props) {
     imageHeightSize,
   } = props;
 
-  console.log("imageWidthSize", imageWidthSize / 2);
-  console.log("imageHeightSize", imageHeightSize / 2);
-
   const magnification = 1.6;
 
   const handleTag = {
@@ -30,7 +27,6 @@ function ToolTipBox(props) {
     left: pointY * magnification,
   };
   const { top, left } = handleTag;
-  console.log("top", top);
   const handleToggle = () => {
     handleToolBox(isSelectId ? null : id);
   };
