@@ -1,79 +1,121 @@
 @import "../../styles/mixin";
 
+%arrow {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 0 10px 10px;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+
 .tag {
   position: absolute;
   width: 40px;
   cursor: pointer;
 
-  .tool-tip-box {
+  .tool-tip-box-default {
     position: absolute;
-    top: -110px;
-    left: -115%;
     background: #fff;
     width: 220px;
     box-shadow: 3px 3px 8px 0 rgb(0 0 0 / 20%);
     border-radius: 7px;
+  }
+
+  .tool-tip-box1 {
+    // 1사분면
+    bottom: -105px;
+    right: -85%;
 
     &:after {
-      top: 100%;
-      left: 30%;
-      border: solid transparent;
-      content: "";
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-      border-color: rgba(255, 255, 255, 0);
-      border-top-color: #fff;
-      border-width: 10px;
-      margin-left: -10px;
+      @extend %arrow;
+      top: -10px;
+      right: 45px;
+    }
+  }
+
+  .tool-tip-box2 {
+    // 2사분면
+    bottom: -105px;
+    left: -85%;
+
+    &:after {
+      @extend %arrow;
+      top: -10px;
+      left: 45px;
+    }
+  }
+
+  .tool-tip-box3 {
+    // 3사분면
+    top: -110px;
+    left: -65%;
+
+    &:after {
+      @extend %arrow;
+      border-width: 10px 10px 0;
+      bottom: -15px;
+      left: 80px;
+    }
+  }
+
+  .tool-tip-box4 {
+    // 4사분면
+    top: -110px;
+    right: -85%;
+
+    &:after {
+      border-width: 10px 10px 0;
+      bottom: -15px;
+      left: 80px;
+    }
+  }
+  .tool-tip-contents {
+    @include flexCenter;
+    padding: 10px;
+
+    .tool-tip-image {
+      width: 80px;
+      height: 80px;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
     }
 
-    .tool-tip-contents {
-      @include flexCenter;
-      padding: 10px;
+    .tool-tip-word {
+      width: 100px;
+      font-size: 13px;
+      margin-left: 10px;
 
-      .tool-tip-image {
-        width: 80px;
-        height: 80px;
+      .tool-tip-price {
+        display: flex;
+        align-items: center;
+        padding-top: 25px;
+        font-weight: bold;
 
-        img {
-          object-fit: cover;
-          height: 100%;
+        .price-info {
+          color: grey;
+        }
+
+        .price-discount-info {
+          color: #ff585d;
+          font-size: 17px;
+        }
+
+        .price {
+          font-size: 17px;
+          padding-left: 5px;
         }
       }
+    }
 
-      .tool-tip-word {
-        width: 100px;
-        font-size: 13px;
-        margin-left: 10px;
-
-        .tool-tip-price {
-          display: flex;
-          align-items: center;
-          padding-top: 25px;
-          font-weight: bold;
-
-          .price-info {
-            color: grey;
-          }
-
-          .price-discount-info {
-            color: #ff585d;
-            font-size: 17px;
-          }
-
-          .price {
-            font-size: 17px;
-            padding-left: 5px;
-          }
-        }
-      }
-
-      .view-more-button {
-        align-self: flex-end;
-        width: 20px;
-      }
+    .view-more-button {
+      align-self: flex-end;
+      width: 20px;
     }
   }
 }

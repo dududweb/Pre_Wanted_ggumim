@@ -5,8 +5,7 @@ import "./StarView.scss";
 
 function StarView() {
   const [data, setData] = useState([]);
-  const [selectId, setSelectId] = useState("");
-  const [isClicked, setIsClicked] = useState(false);
+  const [isSelectId, setIsSelectId] = useState(null);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
 
   const getData = async () => {
@@ -22,25 +21,21 @@ function StarView() {
 
   useEffect(() => {
     getImageSize(data.imageUrl);
-  }, [data]);
-
-  console.log(data);
-  console.log(isClicked);
+  }, [data.imageUrl]);
 
   const getImageSize = (src) => {
     const img = new Image();
     img.src = src;
-    console.log(img.width);
     setImageSize({ width: img.width, height: img.height });
   };
 
-  const handleToolBox = (targetId) => {
-    setIsClicked(!isClicked);
-    setSelectId(targetId);
+  const handleToolBox = (targetValue) => {
+    setIsSelectId(targetValue);
+    console.log(targetValue);
   };
 
   const resetToolBox = () => {
-    setIsClicked(false);
+    setIsSelectId(null);
   };
 
   return (
@@ -63,9 +58,9 @@ function StarView() {
               discountRate={el.discountRate}
               productUrl={el.imageUrl}
               handleToolBox={handleToolBox}
-              selectId={selectId}
-              outside={el.outside}
-              isClicked={isClicked}
+              isSelectId={isSelectId}
+              imageWidthSize={imageSize.width}
+              imageHeightSize={imageSize.height}
             />
           );
         })}
@@ -83,10 +78,8 @@ function StarView() {
                   pointX={el.pointX}
                   pointY={el.pointY}
                   productUrl={el.imageUrl}
-                  selectId={selectId}
+                  isSelectId={isSelectId}
                   handleToolBox={handleToolBox}
-                  isClicked={isClicked}
-                  setIsClicked={setIsClicked}
                 />
               );
             })}
