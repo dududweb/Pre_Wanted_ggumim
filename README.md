@@ -19,8 +19,8 @@ Sass
 </br>   
 :: 설치 및 시작하는 법
 파일 클론 받기
-```git clone https://github.com/Ho0on/wanted_ggumim.git```
+``` git clone https://github.com/dududweb/wanted_ggumim.git ```
 패키지 설치
-```npm install```
+``` npm install ```
 실행
-```npm start```
+``` npm start ```
