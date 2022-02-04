@@ -18,10 +18,9 @@ Sass
 7. 하단 상품목록의 선택된 가구 이미지에 선택되었음을 표시
 8. 입점 여부에 따라 할인율 표시
  
-</br>  
 ## 설치 및 시작하는 법
 - 파일 클론 받기
-- git clone https://github.com/dududweb/wanted_ggumim.git
+``` git clone https://github.com/dududweb/wanted_ggumim.git ```
 - npm install
 - npm start 
 </br>
